@@ -50,7 +50,8 @@ async function getSHA256Hash() {
     return cached;
   }
 
-  cached = await sha256(getRandomArbitrary(MIN, MAX));
+  const randomPin = getRandomArbitrary(MIN, MAX).toString();
+  cached = await sha256(randomPin);
   store('sha256', cached);
   return cached;
 }
